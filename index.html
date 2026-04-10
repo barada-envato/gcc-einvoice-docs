@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plugin Documentation</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .toc,
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .toc h2,
+    .section h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 24px;
+    }
+
+    .section h3 {
+      margin-top: 28px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .toc ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .toc li {
+      margin-bottom: 8px;
+    }
+
+    .toc a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul,
+    ol {
+      margin-top: 0;
+      margin-bottom: 16px;
+      padding-left: 22px;
+    }
+
+    .note,
+    .tip,
+    .warning {
+      border-left: 4px solid;
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin: 18px 0;
+    }
+
+    .note {
+      background: #f9fafb;
+      border-color: #9ca3af;
+    }
+
+    .tip {
+      background: #ecfdf5;
+      border-color: #10b981;
+    }
+
+    .warning {
+      background: #fff7ed;
+      border-color: #f59e0b;
+    }
+
+    figure.doc-image {
+      margin: 22px 0 28px;
+      padding: 18px;
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    figure.doc-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    figure.doc-image figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .placeholder {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    details.alt-install {
+      margin-top: 22px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fafafa;
+      padding: 16px 18px;
+    }
+
+    details.alt-install summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text);
+      margin: -16px -18px 0;
+      padding: 16px 18px;
+    }
+
+    details.alt-install[open] summary {
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.95em;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 700px) {
+      .hero,
+      .toc,
+      .section {
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .toc h2,
+      .section h2 {
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header class="hero">
+      <h1>GCC e-Invoice for WooCommerce (KSA ZATCA Phase 1) Documentation</h1>
+      <p>
+        Welcome to the documentation for <strong>GCC e-Invoice for WooCommerce (KSA ZATCA Phase 1)</strong>.
+        This guide will help you install the plugin, configure the required settings,
+        and understand how invoices and credit notes work in both the admin area and the customer-facing pages.
+      </p>
+    </header>
+
+    <section class="toc">
+      <h2>Table of Contents</h2>
+      <ul>
+        <li><a href="#overview">1. Overview</a></li>
+        <li><a href="#requirements">2. Requirements</a></li>
+        <li><a href="#installation">3. Installation</a></li>
+        <li><a href="#activation">4. Activation</a></li>
+        <li><a href="#settings">5. Plugin Settings</a></li>
+        <li><a href="#admin-usage">6. Admin Usage</a></li>
+        <li><a href="#frontend">7. Customer Front-End Experience</a></li>
+        <li><a href="#naming">8. File Naming Convention</a></li>
+        <li><a href="#sample-pdfs">9. Sample PDF Output</a></li>
+        <li><a href="#support">10. Support</a></li>
+      </ul>
+    </section>
+
+    <section class="section" id="overview">
+      <h2>1. Overview</h2>
+      <p>
+        <strong>GCC e-Invoice for WooCommerce (KSA ZATCA Phase 1)</strong> helps you generate and manage invoice documents directly from your store.
+        It also supports customer access to invoices and, when applicable, credit notes.
+      </p>
+    </section>
+
+    <section class="section" id="requirements">
+        <h2>2. Requirements</h2>
+      
+        <p>
+          Before installing <strong>GCC e-Invoice for WooCommerce (KSA ZATCA Phase 1)</strong>,
+          please make sure your website meets the following minimum requirements:
+        </p>
+      
+        <ul>
+          <li><strong>WordPress:</strong> 6.9 or later</li>
+          <li><strong>WooCommerce:</strong> 10.2.4 or later</li>
+          <li><strong>PHP:</strong> 7.4 or later</li>
+        </ul>
+      
+        <div class="note">
+          WooCommerce must be installed and activated before activating the plugin.
+        </div>
+      
+        <p>
+          The plugin has been tested up to WooCommerce 10.2.4 and includes Arabic/English support,
+          local PDF generation, TLV QR support, and ZATCA Phase 1 invoice and credit note generation.
+        </p>
+    </section>
+
+    <section class="section" id="installation">
+      <h2>3. Installation</h2>
+
+      <h3>3.1 Extract the main package</h3>
+      <p>
+        After downloading the main package from CodeCanyon, extract it first to access the plugin files included in the package. This will create an extracted folder containing the installable plugin ZIP file and the documentation.
+      </p>
+      <figure class="doc-image">
+        <img src="images/1.png" alt="Step 1 screenshot" />
+        <figcaption>
+            Extract the main CodeCanyon package to access the plugin ZIP file and documentation.
+        </figcaption>
+      </figure>
+
+      <h3>3.2 Locate the plugin ZIP file</h3>
+      <p>
+        After extracting the main package, locate the installable plugin ZIP file named <code>gcc-einvoice.zip</code>.
+        This is the file you should upload to your website. Do not upload the full CodeCanyon package ZIP directly.
+      </p>
+      <figure class="doc-image">
+        <img src="images/2.png" alt="Step 2 screenshot" />
+        <figcaption>
+            Locate the installable plugin ZIP file: <code>gcc-einvoice.zip</code>.
+        </figcaption>
+      </figure>
+
+      <h3>3.3 Go to Plugins &gt; Add Plugin</h3>
+      <p>
+        Log in to your WordPress dashboard, open <strong>Plugins</strong>, and click <strong>Add Plugin</strong>.
+      </p>
+      <figure class="doc-image">
+        <img src="images/19.png" alt="Step 3 screenshot" />
+        <figcaption>
+            Open <strong>Plugins &gt; Add Plugin</strong> from the WordPress dashboard.
+        </figcaption>
+      </figure>
+
+      <h3>3.4 Click Upload Plugin and choose the ZIP file</h3>
+      <p>
+        On the Add Plugins page, click <strong>Upload Plugin</strong>, then choose the installable file <code>gcc-einvoice.zip</code> from your computer.
+      </p>
+      <figure class="doc-image">
+        <img src="images/20.png" alt="Step 4 screenshot" />
+        <figcaption>
+            Choose the installable plugin ZIP file: <code>gcc-einvoice.zip</code>.
+        </figcaption>
+      </figure>
+
+      <h3>3.5 Click Install Now</h3>
+      <p>
+        After selecting the plugin ZIP file, click <strong>Install Now</strong> and wait for WordPress to finish installing the plugin.
+      </p>
+      <figure class="doc-image">
+        <img src="images/21.png" alt="Step 5 screenshot" />
+        <figcaption>
+            Click <strong>Install Now</strong> to upload and install the plugin.
+        </figcaption>
+      </figure>
+
+      <div class="tip">
+        After WordPress installs the plugin successfully, continue to the <strong>Activation</strong> section below to activate the plugin.
+      </div>
+
+      <details class="alt-install">
+        <summary>Alternative manual installation (only if dashboard upload fails)</summary>
+
+        <p>
+          If your hosting environment does not allow plugin ZIP uploads from the WordPress dashboard, you can install the plugin manually using your hosting file manager or FTP.
+        </p>
+
+        <h3>Manual step A: Upload the plugin ZIP to the plugins folder</h3>
+        <p>
+          Open your hosting file manager and go to the <code>/wp-content/plugins</code> folder. Then upload the installable plugin ZIP file, <code>gcc-einvoice.zip</code>, to this location.
+        </p>
+        <figure class="doc-image">
+          <img src="images/3.png" alt="Manual installation screenshot 1" />
+          <figcaption>
+              Upload <code>gcc-einvoice.zip</code> to the <code>/wp-content/plugins</code> folder.
+          </figcaption>
+        </figure>
+
+        <h3>Manual step B: Extract the ZIP file</h3>
+        <p>
+          After uploading <code>gcc-einvoice.zip</code>, extract it in the same <code>/wp-content/plugins</code> folder. This will create the plugin folder needed for WordPress to recognize the plugin correctly.
+        </p>
+        <figure class="doc-image">
+          <img src="images/4.png" alt="Manual installation screenshot 2" />
+          <figcaption>
+              Extract <code>gcc-einvoice.zip</code> in the same plugins folder.
+          </figcaption>
+        </figure>
+
+        <h3>Manual step C: Confirm the plugin folder is created</h3>
+        <p>
+          After extraction, the <code>gcc-einvoice</code> folder should appear inside the <code>/wp-content/plugins</code> directory. You can keep or delete the uploaded ZIP file afterward, since the plugin files are already extracted.
+        </p>
+        <figure class="doc-image">
+          <img src="images/5.png" alt="Manual installation screenshot 3" />
+          <figcaption>
+              Confirm that the <code>gcc-einvoice</code> folder has been created.
+          </figcaption>
+        </figure>
+      </details>
+    </section>
+
+    <section class="section" id="activation">
+      <h2>4. Activation</h2>
+
+      <h3>4.1 Activate the plugin after installation</h3>
+      <p>
+        When WordPress finishes installing the plugin, click <strong>Activate Plugin</strong> to enable it immediately.
+      </p>
+      <figure class="doc-image">
+        <img src="images/22.png" alt="Activation screenshot 1" />
+        <figcaption>
+            After installation completes, click <strong>Activate Plugin</strong>.
+        </figcaption>
+      </figure>
+
+      <h3>4.2 Alternative way to activate the plugin</h3>
+      <p>
+        If you leave the installation screen, you can still activate the plugin later from the <strong>Plugins</strong> page in your WordPress dashboard.
+      </p>
+      <figure class="doc-image">
+        <img src="images/6.png" alt="Activation screenshot 2" />
+        <figcaption>
+            You can also activate the plugin later from the Plugins page.
+        </figcaption>
+      </figure>
+
+      <h3>4.3 Missing requirements during activation</h3>
+      <p>
+        If the plugin detects missing server or plugin requirements during activation, it will display a message explaining what needs to be fixed. Review the listed items, update your environment if needed, and then try activating the plugin again.
+      </p>
+      <figure class="doc-image">
+        <img src="images/7.png" alt="Activation screenshot 3" />
+        <figcaption>
+            Example of an activation warning showing missing requirements.
+        </figcaption>
+      </figure>
+
+      <h3>4.4 Open the plugin settings</h3>
+      <p>
+        After activation, you can open the plugin settings in two ways. You can click <strong>Settings</strong> from the Plugins page, or open <strong>WooCommerce &gt; GCC e-Invoice (KSA)</strong> from the WordPress admin menu.
+      </p>
+      <figure class="doc-image">
+        <img src="images/8.png" alt="Activation screenshot 4" />
+        <figcaption>
+            Open the plugin settings from the Plugins page or the WooCommerce menu.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="settings">
+      <h2>5. Plugin Settings</h2>
+
+      <h3>5.1 Complete the required fields</h3>
+      <p>
+        To enable invoice generation, complete the required settings fields first. These fields include the seller information, invoice prefix, store address, and the order statuses that should trigger invoice creation.
+      </p>
+      <figure class="doc-image">
+        <img src="images/9.png" alt="Settings screenshot 1" />
+        <figcaption>
+            Complete the required settings fields before saving the plugin configuration.
+        </figcaption>
+      </figure>
+
+      <h3>5.2 Save the settings successfully</h3>
+      <p>
+        Once all required fields are completed, click <strong>Save Settings</strong> to store the configuration. If everything is entered correctly, the plugin will display a confirmation message showing that invoice generation is ready.
+      </p>
+      <figure class="doc-image">
+        <img src="images/10.png" alt="Settings screenshot 2" />
+        <figcaption>
+            A success message appears after the required settings are saved correctly.
+        </figcaption>
+      </figure>
+
+      <h3>5.3 Save changes before previewing</h3>
+      <p>
+        If you change any invoice-related setting, save the configuration again before using the preview. Until the changes are saved, the sample PDF preview remains disabled.
+      </p>
+      <figure class="doc-image">
+        <img src="images/11.png" alt="Settings screenshot 3" />
+        <figcaption>
+            The preview stays disabled until the latest changes are saved.
+        </figcaption>
+      </figure>
+
+      <div class="warning">
+        If you update any important configuration value, always save the settings before testing or generating a preview.
+      </div>
+    </section>
+
+    <section class="section" id="admin-usage">
+      <h2>6. Admin Usage</h2>
+
+      <h3>6.1 Invoice actions from the orders list</h3>
+      <p>
+        The plugin adds invoice actions directly to the WooCommerce orders list, making it easy to generate or download invoice files for both new and existing orders. For refunded orders, the same action can also generate the related credit note files.
+      </p>
+      
+      <ul>
+        <li>Click the generate icon to create the invoice for an order.</li>
+        <li>If the order includes a refund, the same action will generate both the invoice and the related credit note files.</li>
+        <li>You can use this for current orders as well as older existing orders.</li>
+        <li>Click the PDF icon to download the invoice file.</li>
+        <li>If an order has one credit note, clicking the credit note link downloads a single PDF file.</li>
+        <li>If an order has multiple credit notes, they are downloaded together as a ZIP file, with each credit note kept as a separate PDF.</li>
+      </ul>
+      <figure class="doc-image">
+        <img src="images/12.png" alt="Admin usage screenshot 1" />
+        <figcaption>
+            Invoice and credit note actions are available directly from the WooCommerce orders list.
+        </figcaption>
+      </figure>
+
+      <h3>6.2 Bulk actions</h3>
+      <p>
+            You can also use WooCommerce bulk actions to generate or download invoice files for multiple orders at once. Select the orders you want to process, choose the required bulk action, and click <strong>Apply</strong>.
+      </p>
+      <ul>
+        <li><strong>Generate GCC e-Invoices</strong> creates invoice and credit notes for the selected orders.</li>
+        <li><strong>Download GCC e-Invoices (ZIP)</strong> downloads the generated invoice files and credit notes for the selected orders as a ZIP archive.</li>
+      </ul>
+      <figure class="doc-image">
+        <img src="images/13.png" alt="Admin usage screenshot 2" />
+        <figcaption>
+            Bulk actions can generate or download invoice files for multiple selected orders.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="frontend">
+      <h2>7. Customer Front-End Experience</h2>
+
+      <h3>7.1 Invoice on the Thank You page</h3>
+      <p>
+        If this option is enabled in the plugin settings, an <strong>Invoice</strong> section will appear on the <strong>Thank You</strong> page after the customer places an order. From this section, the customer can download the invoice PDF directly from the order confirmation page.
+      </p>
+      <figure class="doc-image">
+        <img src="images/14.png" alt="Front-end screenshot 1" />
+        <figcaption>Invoice download on the Thank You page.</figcaption>
+      </figure>
+      <div class="warning">
+        This feature usually works only when automatic invoice creation is enabled for the <strong>Processing</strong> order status.
+      </div>
+
+      <h3>7.2 Invoice from My Account &gt; Orders</h3>
+      <p>
+        Customers can also download their invoice directly from the <strong>My Account &gt; Orders</strong> page. When an invoice is available for an order, a <strong>Download Invoice</strong> button appears in the actions column, allowing the customer to download the PDF without opening the full order details page.
+      </p>
+      <figure class="doc-image">
+        <img src="images/15.png" alt="Front-end screenshot 2" />
+        <figcaption>Invoice download from the Orders page.</figcaption>
+      </figure>
+
+      <h3>7.3 Invoice from the order details page</h3>
+      <p>
+        Customers can also download the invoice from the single order details page inside <strong>My Account</strong>. When an invoice is available for the order, an <strong>Invoice</strong> section appears below the order information with a download button for the PDF file.
+      </p>
+      <figure class="doc-image">
+        <img src="images/16.png" alt="Front-end screenshot 3" />
+        <figcaption>Invoice download from the order details page.</figcaption>
+      </figure>
+
+      <h3>7.4 Credit note from the order details page</h3>
+      <p>
+        If an order includes a refund, customers can also download the related credit note from the single order details page inside <strong>My Account</strong>. When a credit note is available, a <strong>Credit Notes</strong> section appears on the same page with a download button for the generated PDF file.
+      </p>
+      <figure class="doc-image">
+        <img src="images/17.png" alt="Front-end screenshot 4" />
+        <figcaption>Credit note download from the order details page.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="naming">
+        <h2>8. File Naming Convention</h2>
+        <p>
+          Generated PDF files use a clear naming pattern so invoices and credit notes can be identified easily. Each filename includes the invoice number, and credit note files also include the related credit note number. A short random suffix is added at the end of the filename to help keep each generated file unique.
+        </p>
+      
+        <ul>
+          <li><strong>Invoice:</strong> <code>INV-000005-8YUw.pdf</code> — includes the invoice number followed by a unique suffix.</li>
+          <li><strong>Credit note:</strong> <code>INV-000005-CN-000001-M26VF.pdf</code> — includes the related invoice number, the credit note identifier <code>CN</code>, the credit note number, and a unique suffix.</li>
+        </ul>
+      
+        <figure class="doc-image">
+          <img src="images/18.png" alt="Example generated filenames" />
+          <figcaption>Example generated filenames.</figcaption>
+        </figure>
+      
+        <div class="note">
+          If an order has multiple credit notes, each credit note is generated as a separate PDF file with its own credit note number and filename.
+        </div>
+    </section>
+
+    <section class="section" id="sample-pdfs">
+      <h2>9. Sample PDF Output</h2>
+
+      <h3>9.1 Sample invoice PDF</h3>
+      <p>
+        This section shows an example of the invoice PDF generated by the plugin.
+      </p>
+      <figure class="doc-image">
+        <img src="images/invoice.png" alt="Sample invoice PDF" />
+        <figcaption>Sample invoice PDF output.</figcaption>
+      </figure>
+
+      <h3>9.2 Sample credit note PDF</h3>
+      <p>
+        This section shows an example of the credit note PDF generated by the plugin.
+      </p>
+      <figure class="doc-image">
+        <img src="images/credit-note.png" alt="Sample credit note PDF" />
+        <figcaption>Sample credit note PDF output.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="support">
+        <h2>10. Support</h2>
+        <p>
+          If you need help with installation, setup, or plugin usage, please contact support through the item support channel on CodeCanyon and include as many details as possible, such as your WordPress version, WooCommerce version, PHP version, and screenshots of the issue when available.
+        </p>
+    </section>
+
+    <div class="footer">
+        Documentation for <strong>GCC e-Invoice for WooCommerce (KSA ZATCA Phase 1)</strong>.
+    </div>
+
+  </div>
+</body>
+</html>
